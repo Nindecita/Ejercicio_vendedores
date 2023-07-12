@@ -5,3 +5,10 @@ body {
   background-color: rgb(7, 6, 6);
   }
 
+.formulario{
+  color: rgb(8, 225, 84);
+}
+.titulo{
+  color: rgb(149, 209, 19);
+  text-align: center;
+}

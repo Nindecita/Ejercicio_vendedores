@@ -24,9 +24,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     #permite insertar la relacion en la tabla relacional
-    puts "***************"
-    puts params[:product][:category_ids]
-    @product.categories << Category.find(params[:product][:category_ids])
+    categorias = params[:product][:category_ids]
+    categorias_id= categorias.select do |id|
+      id!=""
+    end
+
+    @product.categories << Category.find(categorias_id)
 
     respond_to do |format|
       if @product.save
