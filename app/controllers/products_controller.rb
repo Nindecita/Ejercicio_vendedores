@@ -23,6 +23,10 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    #permite insertar la relacion en la tabla relacional
+    puts "***************"
+    puts params[:product][:category_ids]
+    @product.categories << Category.find(params[:product][:category_ids])
 
     respond_to do |format|
       if @product.save
@@ -66,7 +70,7 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :price, :size, :category_id =>[])
+      params.require(:product).permit(:name, :price, :size, {category_ids: []})
       #params.require(:product).permit(:name, :price, :size, categories_attributes:[category_id])
 
     end

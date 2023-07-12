@@ -21,13 +21,17 @@
     <%= form.label :size, style: "display: block" %>
     <%= form.number_field :size %>
   </div>
-  <div>
+  <!--<div>
     <label for="product_category_id">Seleccione una categoría:</label>
-    <select name="product[category_id]" id="product_category_id">
+    <select name="product[category_ids]" id="product_category_id" multiple>
       <% @categories.each do |category| %>
         <option value="<%= category.id %>"> <%= category.id %> - <%= category.name %> </option>
       <% end %>
     </select>
+  </div>-->
+  <div>
+    <%= form.label :category_ids %><br />
+    <%= form.collection_select :category_ids, Category.all, :id, :name,{include_blank: false}, {:multiple => true, size: Category.all.count } %>
   </div>
   <div>
     <%= form.submit %>
