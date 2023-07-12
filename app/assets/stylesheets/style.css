@@ -12,3 +12,7 @@ body {
   color: rgb(149, 209, 19);
   text-align: center;
 }
+
+.box{
+  justify-content: center;
+}

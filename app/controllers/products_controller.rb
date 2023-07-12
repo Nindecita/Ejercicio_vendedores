@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
       id!=""
     end
 
-    @product.categories << Category.find(categorias_id)
+    #@product.categories << Category.find(categorias_id)
 
     respond_to do |format|
       if @product.save
@@ -73,7 +73,7 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :price, :size, {category_ids: []})
+      params.require(:product).permit(:name, :price, :size, category_ids: [])
       #params.require(:product).permit(:name, :price, :size, categories_attributes:[category_id])
 
     end

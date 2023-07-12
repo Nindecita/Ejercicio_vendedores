@@ -11,7 +11,7 @@ require 'faker'
   Vendedor.create(numero_empleado: i+10,
   nombre: Faker::Artist.name,
   mail: Faker::Internet.email,
-  oficina:"oficina",
-  manager:"manager",
+  oficina:"Oficina",
+  manager:"Manager",
   )
 end
